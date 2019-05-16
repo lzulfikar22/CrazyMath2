@@ -5,28 +5,35 @@ const app = new Vue({
         max: 10,
         number: 1,
         number2: 1,
-        jumlah: 0,
+        number3: 1,
         score: 0,
-        isi: 0,
-        jadul : 0,
-        jawaban : 0,
+        random: 1,
     },
     watch: {
         isi: "ketik"
     },
+
+    computed: {
+        jumlah: function () {
+            return this.number + this.number2
+        },
+
+        pengecoh: function () {
+            return this.jumlah - this.number3
+        }
+    },
     methods: {
-        ketik: function () {
-            this.jawaban = this.isi
+
+        benar: function () {
+            this.score = this.score + 10
+            this.getInput()
+        },
+        salah: function () {
+            this.score = this.score - 5
+            this.getInput()
         },
         // Untuk tombol random
         getInput: function () {
-            this.jumlah = this.number + this.number2
-            if (this.jadul == this.jumlah){
-                this.score = this.score + 5
-            } else {
-                this.score = this.score
-            }
-            this.jadul = this.jawaban
             this.getRandomNumber()
         },
 
@@ -34,10 +41,15 @@ const app = new Vue({
         getRandomNumber: function () {
             this.number = this.generateNumber()
             this.number2 = this.generateNumber()
+            this.number3 = this.generateNumber()
+            this.random = this.leftRight()
         },
         // Fungsi untuk random
         generateNumber: function () {
             return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+        },
+        leftRight: function () {
+            return Math.floor(Math.random() * (2 - 1 + 1) + 1);
         },
     }
 })

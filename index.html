@@ -2,26 +2,36 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Crazy Math</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Belajar Vue</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='bootstrap.min.css'>
+    <script src='main.js'></script>
+    <style>
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <div id="title">Random Number Generator</div>
-        <p id="rNum">{{ number }}</p>
-        <p id="rNum">{{ number2 }}</p>
-        <p>{{jumlah}}</p>
-        <input v-model.number="isi" type="number">
-        <p>{{score}}</p>
-        <p>{{jawaban}}</p>
-        <div id="inputs">
-            <input id="generate" type="submit" value="Generate Number" v-on:click="getInput()" />
+    <!-- Kode Dibawah sini-->
+
+    <div id=app>
+        <div>
+            {{number}} + {{number2}} =
+        </div>
+        <div v-show="random == '1'">
+            <button v-on:click='benar'>{{jumlah}}</button>
+            <button v-on:click='salah'>{{pengecoh}}</button>
+        </div>
+        <div v-show="random == '2'">
+            <button v-on:click='salah'>{{pengecoh}}</button>
+            <button v-on:click='benar'>{{jumlah}}</button>
+        </div>
+        <div>
+            {{score}}
         </div>
     </div>
+    <!-- Kode Diatas sini-->
     <script src="vue.min.js"></script>
     <script src="apps.js"></script>
 </body>
