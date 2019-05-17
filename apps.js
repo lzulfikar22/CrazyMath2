@@ -31,7 +31,7 @@ const app = new Vue({
             if (this.hp == 0) {
                 this.losepage = true
                 this.game = false
-                this.score = o
+                this.score = 0
             }
         },
         kembali:function(){
