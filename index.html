@@ -7,6 +7,7 @@
     <title>Belajar Vue</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='bootstrap.min.css'>
+    <link rel='stylesheet' href="style.css" media="screen">
     <script src='main.js'></script>
     <style>
     </style>
@@ -16,19 +17,29 @@
     <!-- Kode Dibawah sini-->
 
     <div id=app>
-        <div>
-            {{number}} + {{number2}} =
+        <div id="frontpage" v-if="frontpage">
+            <p>Halo, ini awalan</p>
+            <button v-on:click="start">Go !</button>
         </div>
-        <div v-show="random == '1'">
-            <button v-on:click='benar'>{{jumlah}}</button>
-            <button v-on:click='salah'>{{pengecoh}}</button>
+        <div id="game" v-if="game">
+            <div>
+                {{number}} + {{number2}} =
+            </div>
+            <div v-show="random == '1'">
+                <button v-on:click='benar'>{{jumlah}}</button>
+                <button v-on:click='salah'>{{pengecoh}}</button>
+            </div>
+            <div v-show="random == '2'">
+                <button v-on:click='salah'>{{pengecoh}}</button>
+                <button v-on:click='benar'>{{jumlah}}</button>
+            </div>
+            <div>
+                {{score}} {{hp}}
+            </div>
         </div>
-        <div v-show="random == '2'">
-            <button v-on:click='salah'>{{pengecoh}}</button>
-            <button v-on:click='benar'>{{jumlah}}</button>
-        </div>
-        <div>
-            {{score}}
+        <div id="kalah" v-if="losepage">
+            <p>Kamu kalah, yey</p>
+            <button v-on:click="kembali">Kembali</button>
         </div>
     </div>
     <!-- Kode Diatas sini-->

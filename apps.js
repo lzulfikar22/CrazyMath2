@@ -2,15 +2,19 @@ const app = new Vue({
     el: "#app",
     data: {
         min: 1,
-        max: 10,
+        max: 100,
         number: 1,
         number2: 1,
         number3: 1,
         score: 0,
         random: 1,
+        hp: 5,
+        frontpage:true,
+        game:false,
+        losepage:false,
     },
     watch: {
-        isi: "ketik"
+        hp : "mati"
     },
 
     computed: {
@@ -23,13 +27,29 @@ const app = new Vue({
         }
     },
     methods: {
-
+        mati:function(){
+            if (this.hp == 0) {
+                this.losepage = true
+                this.game = false
+                this.score = o
+            }
+        },
+        kembali:function(){
+            this.losepage = false
+            this.frontpage = true
+        },
+        start:function(){
+            this.frontpage = false
+            this.game = true
+            this.getInput()
+        },
         benar: function () {
             this.score = this.score + 10
             this.getInput()
         },
         salah: function () {
             this.score = this.score - 5
+            this.hp = this.hp - 1
             this.getInput()
         },
         // Untuk tombol random
