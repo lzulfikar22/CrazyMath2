@@ -9,12 +9,15 @@ const app = new Vue({
         score: 0,
         random: 1,
         hp: 5,
-        frontpage:true,
-        game:false,
-        losepage:false,
+        frontpage: true,
+        game: false,
+        losepage: false,
+        nama: false,
+        user: "Tamu",
+        username: "",
     },
     watch: {
-        hp : "mati"
+        hp: "mati",
     },
 
     computed: {
@@ -23,22 +26,38 @@ const app = new Vue({
         },
 
         pengecoh: function () {
-            return this.jumlah - this.number3
+            if (this.random == 1) {
+                return this.jumlah + this.number3
+            } else {
+                return this.jumlah - this.number3
+            }
         }
     },
     methods: {
-        mati:function(){
+        ubah: function () {
+            this.user = this.username
+            this.nama = false
+        },
+        ganti: function () {
+            if (this.nama == false) {
+                this.nama = true
+            } else {
+                this.nama = false
+            }
+        },
+        mati: function () {
             if (this.hp == 0) {
                 this.losepage = true
                 this.game = false
                 this.score = 0
             }
         },
-        kembali:function(){
+        kembali: function () {
             this.losepage = false
             this.frontpage = true
         },
-        start:function(){
+        start: function () {
+            this.hp = 5
             this.frontpage = false
             this.game = true
             this.getInput()
