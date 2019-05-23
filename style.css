@@ -1,6 +1,6 @@
 .clearfix {
     overflow: auto;
-  }
+}
 
 .tengah {
     margin: 0;
@@ -15,6 +15,14 @@
 #wrapper {
     margin: auto;
     width: 70%;
-    background-color: tomato;
+    background-color: khaki;
     height: 500px;
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(https://www.w3schools.com/cssref/border.png) 40% stretch;
+}
+
+#soal{
+    font-size: 72px;
+    background-color: #fff;
 }

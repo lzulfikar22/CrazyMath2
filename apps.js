@@ -37,6 +37,7 @@ const app = new Vue({
         ubah: function () {
             this.user = this.username
             this.nama = false
+            this.username = ""
         },
         ganti: function () {
             if (this.nama == false) {
